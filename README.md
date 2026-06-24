@@ -5,9 +5,13 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Argus turns PRDs, design docs, feature docs, RFCs, ADRs, and architecture notes into
-developer-facing, STRIDE-categorized, OWASP-risk-rated threat model reports using an
-ADK-only multi-agent workflow.
+## The Problem
+In modern enterprise development, security engineers are often a bottleneck. They do not have the bandwidth to manually threat-model every single PRD, design doc, or RFC before a sprint begins. Discovering design flaws late in the SDLC leads to expensive architectural refactoring, delayed releases, or catastrophic security breaches. 
+
+## The Solution
+**Argus** solves this by acting as an autonomous Security Champion. It turns raw PRDs, design docs, feature docs, RFCs, and architecture notes into developer-facing, STRIDE-categorized, OWASP-risk-rated threat model reports using an ADK-only multi-agent workflow. This allows development teams to securely "shift left" without friction.
+
+## Architecture
 
 ```text
 Input document
