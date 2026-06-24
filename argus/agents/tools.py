@@ -71,9 +71,7 @@ def _ingestion(ingestion_result: dict[str, Any]) -> IngestionResult:
         else:
             model_fields = set(SystemModel.model_fields)
             system_model_payload = {
-                key: value
-                for key, value in ingestion_result.items()
-                if key in model_fields
+                key: value for key, value in ingestion_result.items() if key in model_fields
             }
             system_model_payload.setdefault(
                 "name",

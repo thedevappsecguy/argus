@@ -11,13 +11,14 @@ The threat-modeling agents (Plan 4) load the body + items of the skills chosen b
 from __future__ import annotations
 
 from importlib import resources
+from typing import Any
 
-import yaml
+import yaml  # type: ignore[import-untyped]
 
 SKILLS_DIR = resources.files("argus.skill_corpus")
 
 
-def _parse_frontmatter(text: str) -> tuple[dict, str]:
+def _parse_frontmatter(text: str) -> tuple[dict[str, Any], str]:
     """Split a ``---``-delimited YAML frontmatter block from the markdown body.
 
     Args:
@@ -34,16 +35,12 @@ def _parse_frontmatter(text: str) -> tuple[dict, str]:
 
 def list_skills() -> list[str]:
     """Return names of all skill folders that contain a SKILL.md."""
-    if not SKILLS_DIR.exists():
+    if not SKILLS_DIR.is_dir():
         return []
-    return sorted(
-        p.name
-        for p in SKILLS_DIR.iterdir()
-        if p.is_dir() and (p / "SKILL.md").exists()
-    )
+    return sorted(p.name for p in SKILLS_DIR.iterdir() if p.is_dir() and (p / "SKILL.md").is_file())
 
 
-def load_skill(name: str) -> dict:
+def load_skill(name: str) -> dict[str, Any]:
     """Load a skill by name and return its metadata, body, and items.
 
     Args:
@@ -58,7 +55,7 @@ def load_skill(name: str) -> dict:
     """
     folder = SKILLS_DIR / name
     skill_md = folder / "SKILL.md"
-    if not skill_md.exists():
+    if not skill_md.is_file():
         raise FileNotFoundError(f"Skill not found: {name}")
 
     fm, body = _parse_frontmatter(skill_md.read_text(encoding="utf-8"))
@@ -67,8 +64,8 @@ def load_skill(name: str) -> dict:
         raise ValueError(f"Skill {name}: SKILL.md frontmatter requires 'name' and 'description'")
 
     list_path = folder / "resources" / "list.yaml"
-    items: list = []
-    if list_path.exists():
+    items: list[Any] = []
+    if list_path.is_file():
         items = yaml.safe_load(list_path.read_text(encoding="utf-8")) or []
 
     return {
@@ -79,7 +76,7 @@ def load_skill(name: str) -> dict:
     }
 
 
-def _format_item(item) -> str:  # noqa: ANN001
+def _format_item(item: Any) -> str:  # noqa: ANN001
     """Render one skill resource item as compact prompt grounding text."""
     if not isinstance(item, dict):
         return f"- {item}"
@@ -110,7 +107,7 @@ def _format_item(item) -> str:  # noqa: ANN001
     return "- " + " | ".join(fields)
 
 
-def load_selected_skills(model, max_items: int = 20) -> str:
+def load_selected_skills(model: Any, max_items: int = 20) -> str:
     """Concatenate the body + items of every skill the router selects for this model.
 
     This is the missing link between the skill router (which picks skill *names*) and the
@@ -131,8 +128,6 @@ def load_selected_skills(model, max_items: int = 20) -> str:
         skill = load_skill(skill_name)
         item_lines = "\n".join(_format_item(i) for i in skill["items"][:max_items])
         blocks.append(
-            f"## {skill['name']}: {skill['description']}\n"
-            f"{skill['body']}\n"
-            f"Items:\n{item_lines}"
+            f"## {skill['name']}: {skill['description']}\n{skill['body']}\nItems:\n{item_lines}"
         )
     return "\n\n".join(blocks)

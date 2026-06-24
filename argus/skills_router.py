@@ -9,11 +9,13 @@ _TYPE_TO_SKILL: dict[str, str] = {
 }
 
 # Component.properties flags that signal an AI/agent/MCP domain.
-_CONTROL_SKILLS: frozenset[str] = frozenset({
-    "owasp-asvs",
-    "owasp-cheatsheets",
-    "owasp-proactive-controls",
-})
+_CONTROL_SKILLS: frozenset[str] = frozenset(
+    {
+        "owasp-asvs",
+        "owasp-cheatsheets",
+        "owasp-proactive-controls",
+    }
+)
 
 _PROP_TO_SKILLS: dict[str, set[str]] = {
     "llm": {

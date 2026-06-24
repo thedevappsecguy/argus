@@ -17,8 +17,9 @@ def _model() -> SystemModel:
     )
 
 
-def _verified(element_id: str, verdict: str = "confirmed", reachable: bool = True,
-              **kw) -> VerifiedThreat:
+def _verified(
+    element_id: str, verdict: str = "confirmed", reachable: bool = True, **kw
+) -> VerifiedThreat:
     return VerifiedThreat(
         title=f"threat on {element_id}",
         stride="I",
@@ -52,10 +53,18 @@ def test_rate_threats_severity_is_deterministic_from_factors() -> None:
     m = _model()
     v = _verified(
         "api",
-        likelihood={"ease_of_discovery": 9, "ease_of_exploit": 9,
-                    "awareness": 9, "intrusion_detection": 9},
-        impact={"loss_of_confidentiality": 9, "loss_of_integrity": 9,
-                "non_compliance": 9, "privacy_violation": 9},
+        likelihood={
+            "ease_of_discovery": 9,
+            "ease_of_exploit": 9,
+            "awareness": 9,
+            "intrusion_detection": 9,
+        },
+        impact={
+            "loss_of_confidentiality": 9,
+            "loss_of_integrity": 9,
+            "non_compliance": 9,
+            "privacy_violation": 9,
+        },
     )
     assert rate_threats([v], m)[0].severity == "Critical"
 

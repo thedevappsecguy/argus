@@ -1,3 +1,4 @@
+# mypy: ignore-errors
 """Runtime bridge for executing the ADK-only Argus workflow."""
 
 from __future__ import annotations
@@ -65,15 +66,19 @@ def run_threat_model_adk(
     }
 
     asyncio.run(_create_session(runner, user_id, session_id, state))
-    message = types.UserContent(parts=[
-        types.Part(text=(
-            "Run the complete Argus ADK threat-model workflow for the system described "
-            "in this source document. Threat-model the document content, not Argus or "
-            "the workflow runtime.\n\n"
-            f"SOURCE NAME: {source_name}\n\n"
-            f"{guarded_input}"
-        ))
-    ])
+    message = types.UserContent(
+        parts=[
+            types.Part(
+                text=(
+                    "Run the complete Argus ADK threat-model workflow for the system described "
+                    "in this source document. Threat-model the document content, not Argus or "
+                    "the workflow runtime.\n\n"
+                    f"SOURCE NAME: {source_name}\n\n"
+                    f"{guarded_input}"
+                )
+            )
+        ]
+    )
     for _event in runner.run(
         user_id=user_id,
         session_id=session_id,

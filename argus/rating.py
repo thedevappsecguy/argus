@@ -73,8 +73,8 @@ class ImpactFactors(BaseModel):
 class ThreatStatus(str, Enum):
     """Disposition of a threat in the final report."""
 
-    REPORTED = "reported"              # confirmed real + reachable; in the ranked table
-    SUPPRESSED = "suppressed"          # ruled out: covered by an existing control
+    REPORTED = "reported"  # confirmed real + reachable; in the ranked table
+    SUPPRESSED = "suppressed"  # ruled out: covered by an existing control
     NOT_APPLICABLE = "not_applicable"  # ruled out: false positive / not reachable
 
 
@@ -90,8 +90,8 @@ class RatedThreat(BaseModel):
     template_id: str
     title: str
     stride: str
-    element_id: str       # evidence: the model element this threat is bound to
-    element_kind: str     # "component" | "data_flow" | ""
+    element_id: str  # evidence: the model element this threat is bound to
+    element_kind: str  # "component" | "data_flow" | ""
     status: ThreatStatus
     reason: str = ""
     attack_path: str = ""
@@ -113,7 +113,7 @@ def _kind_of(model: SystemModel, element_id: str) -> str:
     return ""
 
 
-def rate_threats(verified: list, model: SystemModel) -> list[RatedThreat]:
+def rate_threats(verified: list[Any], model: SystemModel) -> list[RatedThreat]:
     """Rate verifier output with the deterministic OWASP matrix.
 
     Only threats the verifier confirmed as real *and* reachable become REPORTED (and get a
@@ -136,10 +136,7 @@ def rate_threats(verified: list, model: SystemModel) -> list[RatedThreat]:
             continue  # element not in model — hallucinated id, drop
 
         verdict = getattr(v, "verdict", "confirmed")
-        confirmed = (
-            verdict == "confirmed"
-            and getattr(v, "reachable", True)
-        )
+        confirmed = verdict == "confirmed" and getattr(v, "reachable", True)
         if confirmed:
             status = ThreatStatus.REPORTED
             rating = rate(v.likelihood.model_dump(), v.impact.model_dump())
@@ -150,16 +147,18 @@ def rate_threats(verified: list, model: SystemModel) -> list[RatedThreat]:
             status = ThreatStatus.NOT_APPLICABLE
             rating = None
 
-        out.append(RatedThreat(
-            template_id=f"T-{i:03d}",
-            title=v.title,
-            stride=v.stride,
-            element_id=v.element_id,
-            element_kind=kind,
-            status=status,
-            reason=getattr(v, "reason", ""),
-            attack_path=getattr(v, "attack_path", ""),
-            controls=list(getattr(v, "mitigating_controls", [])),
-            rating=rating,
-        ))
+        out.append(
+            RatedThreat(
+                template_id=f"T-{i:03d}",
+                title=v.title,
+                stride=v.stride,
+                element_id=v.element_id,
+                element_kind=kind,
+                status=status,
+                reason=getattr(v, "reason", ""),
+                attack_path=getattr(v, "attack_path", ""),
+                controls=list(getattr(v, "mitigating_controls", [])),
+                rating=rating,
+            )
+        )
     return out

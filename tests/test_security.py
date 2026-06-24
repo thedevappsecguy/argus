@@ -6,6 +6,7 @@ from argus.security.input_guard import wrap_untrusted
 # Input guard tests
 # ---------------------------------------------------------------------------
 
+
 def test_wrap_untrusted_contains_xml_delimiters() -> None:
     result = wrap_untrusted("design_doc", "The user can log in.")
     assert "<untrusted-data" in result
@@ -37,6 +38,6 @@ def test_wrap_untrusted_escapes_delimiter_breakout() -> None:
 
 
 def test_wrap_untrusted_escapes_source_attribute() -> None:
-    prompt = wrap_untrusted("doc\" onmouseover=\"alert(1)", "content")
+    prompt = wrap_untrusted('doc" onmouseover="alert(1)', "content")
 
     assert 'source="doc&quot; onmouseover=&quot;alert(1)"' in prompt

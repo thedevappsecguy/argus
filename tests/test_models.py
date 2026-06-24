@@ -17,10 +17,14 @@ def test_build_minimal_system_model() -> None:
     m = SystemModel(
         name="demo",
         actors=[Actor(id="anon", name="Anonymous user", privilege=Privilege.ANON)],
-        components=[Component(id="api", name="API", type="service",
-                              properties={"handles_user_input"})],
-        data_flows=[DataFlow(id="f1", source="anon", dest="api",
-                             authenticated=False, data=[Classification.PII])],
+        components=[
+            Component(id="api", name="API", type="service", properties={"handles_user_input"})
+        ],
+        data_flows=[
+            DataFlow(
+                id="f1", source="anon", dest="api", authenticated=False, data=[Classification.PII]
+            )
+        ],
         existing_controls=[Control(id="c1", name="WAF", mitigates=["T-RATELIMIT"])],
     )
     assert m.components[0].properties == ["handles_user_input"]

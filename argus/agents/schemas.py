@@ -1,6 +1,6 @@
 """ADK stage output schemas for the Argus agent workflow."""
 
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -46,7 +46,7 @@ class SchemaValidationResult(BaseModel):
     valid: bool
     schema_name: str
     errors: str = ""
-    normalized: dict = Field(default_factory=dict)
+    normalized: dict[str, Any] = Field(default_factory=dict)
 
 
 class ControlChallenge(BaseModel):

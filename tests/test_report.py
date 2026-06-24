@@ -11,8 +11,7 @@ def _webhook_model() -> SystemModel:
         name="x",
         scope="webhook test",
         actors=[Actor(id="net", name="Internet", privilege=Privilege.ANON)],
-        components=[Component(id="hook", name="Webhook",
-                              properties={"makes_outbound_requests"})],
+        components=[Component(id="hook", name="Webhook", properties={"makes_outbound_requests"})],
         data_flows=[DataFlow(id="in", source="net", dest="hook", authenticated=False)],
     )
 
@@ -42,8 +41,8 @@ def test_render_report_contains_threats_table_with_attack_path_and_controls() ->
     report = render_report(_webhook_model(), [_ssrf_threat()])
     assert "| Severity |" in report
     assert "Server-Side Request Forgery" in report
-    assert "net -> in -> hook" in report          # grounded attack path
-    assert "egress allowlist" in report            # mitigating controls
+    assert "net -> in -> hook" in report  # grounded attack path
+    assert "egress allowlist" in report  # mitigating controls
 
 
 def test_render_report_has_no_cwe() -> None:

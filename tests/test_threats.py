@@ -30,23 +30,29 @@ def test_proposed_threat_is_lightweight_candidate_no_cwe() -> None:
 
 
 def test_validate_proposed_keeps_valid_known_element() -> None:
-    proposed = ProposedThreats(threats=[
-        ProposedThreat(
-            title="IDOR on API",
-            stride="E",
-            element_id="api",
-            rationale="serves_objects flag on api component",
-            owasp_refs=["API1:2023"],
-        )
-    ])
+    proposed = ProposedThreats(
+        threats=[
+            ProposedThreat(
+                title="IDOR on API",
+                stride="E",
+                element_id="api",
+                rationale="serves_objects flag on api component",
+                owasp_refs=["API1:2023"],
+            )
+        ]
+    )
     valid = validate_proposed(proposed, _model())
     assert len(valid) == 1
     assert valid[0].title == "IDOR on API"
 
 
 def test_validate_proposed_drops_unknown_element_id() -> None:
-    proposed = ProposedThreats(threats=[
-        ProposedThreat(title="Ghost threat", stride="T", element_id="nonexistent", rationale="x")
-    ])
+    proposed = ProposedThreats(
+        threats=[
+            ProposedThreat(
+                title="Ghost threat", stride="T", element_id="nonexistent", rationale="x"
+            )
+        ]
+    )
     valid = validate_proposed(proposed, _model())
     assert len(valid) == 0
