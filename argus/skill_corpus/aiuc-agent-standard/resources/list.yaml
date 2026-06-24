@@ -1,0 +1,24 @@
+- id: AIUC-SECURITY
+  name: Security
+  source_url: https://www.aiuc-1.com/
+  key_checks: ["agent privilege", "tool access", "secure integration"]
+- id: AIUC-DATA-PRIVACY
+  name: Data and Privacy
+  source_url: https://www.aiuc-1.com/
+  key_checks: ["data minimization", "privacy controls", "secret handling"]
+- id: AIUC-ACCOUNTABILITY
+  name: Accountability
+  source_url: https://www.aiuc-1.com/
+  key_checks: ["auditability", "ownership", "traceability"]
+- id: AIUC-RELIABILITY
+  name: Reliability
+  source_url: https://www.aiuc-1.com/
+  key_checks: ["consistent behavior", "monitoring", "fallbacks"]
+- id: AIUC-SAFETY
+  name: Safety
+  source_url: https://www.aiuc-1.com/
+  key_checks: ["harm prevention", "human oversight", "guardrails"]
+- id: AIUC-SOCIETY
+  name: Society
+  source_url: https://www.aiuc-1.com/
+  key_checks: ["misuse prevention", "fairness", "responsible deployment"]

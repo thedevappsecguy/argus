@@ -1,0 +1,66 @@
+- id: ASI01
+  name: Memory Poisoning
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["long-term memory writes", "RAG/vector store poisoning", "memory provenance"]
+  atlas_refs: ["AML.T0020"]
+- id: ASI02
+  name: Tool Misuse
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["tool-call authorization", "argument validation", "tool output trust"]
+- id: ASI03
+  name: Privilege Compromise
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["agent identity", "credential scope", "least privilege"]
+- id: ASI04
+  name: Resource Overload
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["loop limits", "token budgets", "tool invocation caps"]
+- id: ASI05
+  name: Cascading Hallucination Attacks
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["multi-step factual drift", "agent-to-agent propagation", "verification gates"]
+- id: ASI06
+  name: Intent Breaking and Goal Manipulation
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["goal hijacking", "policy override", "instruction hierarchy"]
+  atlas_refs: ["AML.T0051"]
+- id: ASI07
+  name: Misaligned and Deceptive Behaviors
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["hidden objectives", "unsafe autonomy", "monitoring gaps"]
+- id: ASI08
+  name: Repudiation and Untraceability
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["audit logs", "decision traceability", "action attribution"]
+- id: ASI09
+  name: Identity Spoofing and Impersonation
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["agent identity verification", "caller authentication", "delegation boundaries"]
+- id: ASI10
+  name: Overwhelming Human-in-the-Loop
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["approval fatigue", "batch approval abuse", "human review quality"]
+- id: ASI11
+  name: Unexpected RCE Code Attacks
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["code execution tools", "sandboxing", "command allowlists"]
+- id: ASI12
+  name: Agent Communication Poisoning
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["message authentication", "inter-agent trust", "shared context integrity"]
+- id: ASI13
+  name: Rogue Agents in Multi-Agent Systems
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["agent registry", "authorization", "isolation"]
+- id: ASI14
+  name: Human Attacks in Multi-Agent Systems
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["social engineering", "operator deception", "approval-channel integrity"]
+- id: ASI15
+  name: Human Manipulation
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["persuasive output", "user coercion", "safety messaging"]
+- id: ASI16
+  name: Insecure Inter-Agent Protocol Abuse
+  source_url: https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative/tree/main/agentic-top-10/0.5-initial-candidates
+  key_checks: ["protocol validation", "message schemas", "authentication"]

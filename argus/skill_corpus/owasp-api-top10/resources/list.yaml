@@ -1,0 +1,70 @@
+- id: "API1:2023"
+  name: Broken Object Level Authorization
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["per-object authorization", "IDOR/BOLA checks", "tenant isolation"]
+  cwe: ["CWE-639"]
+  asvs: ["V4.2.1"]
+  cheatsheet: ["Authorization_Cheat_Sheet"]
+- id: "API2:2023"
+  name: Broken Authentication
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["token validation", "expiry", "revocation"]
+  cwe: ["CWE-287"]
+  asvs: ["V2.1.1"]
+  cheatsheet: ["Authentication_Cheat_Sheet"]
+- id: "API3:2023"
+  name: Broken Object Property Level Authorization
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["field-level authorization", "mass assignment controls", "response filtering"]
+  cwe: ["CWE-915"]
+  asvs: ["V4.1.1"]
+  cheatsheet: ["Mass_Assignment_Cheat_Sheet"]
+- id: "API4:2023"
+  name: Unrestricted Resource Consumption
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["rate limits", "quotas", "payload and pagination caps"]
+  cwe: ["CWE-770"]
+  asvs: ["V13.2.1"]
+  cheatsheet: ["DoS_Cheat_Sheet"]
+- id: "API5:2023"
+  name: Broken Function Level Authorization
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["role checks per operation", "admin endpoint protection", "method authorization"]
+  cwe: ["CWE-285"]
+  asvs: ["V4.1.1"]
+  cheatsheet: ["Authorization_Cheat_Sheet"]
+- id: "API6:2023"
+  name: Unrestricted Access to Sensitive Business Flows
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["anti-automation", "business limits", "abuse-case checks"]
+  cwe: ["CWE-840"]
+  asvs: ["V11.1.1"]
+  cheatsheet: ["Abuse_Case_Cheat_Sheet"]
+- id: "API7:2023"
+  name: Server Side Request Forgery
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["user-controlled outbound destinations", "egress allowlists", "metadata IP blocking"]
+  cwe: ["CWE-918"]
+  asvs: ["V12.6.1"]
+  cheatsheet: ["Server_Side_Request_Forgery_Prevention_Cheat_Sheet"]
+- id: "API8:2023"
+  name: Security Misconfiguration
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["CORS", "debug exposure", "error verbosity"]
+  cwe: ["CWE-16"]
+  asvs: ["V14.1.1"]
+  cheatsheet: ["Configuration_Cheat_Sheet"]
+- id: "API9:2023"
+  name: Improper Inventory Management
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["API inventory", "version lifecycle", "shadow endpoints"]
+  cwe: ["CWE-1059"]
+  asvs: ["V1.1.1"]
+  cheatsheet: ["API_Security_Cheat_Sheet"]
+- id: "API10:2023"
+  name: Unsafe Consumption of APIs
+  source_url: https://github.com/OWASP/API-Security/tree/master/editions/2023/en
+  key_checks: ["validate upstream responses", "timeouts", "trust boundaries for third parties"]
+  cwe: ["CWE-20"]
+  asvs: ["V13.1.1"]
+  cheatsheet: ["REST_Security_Cheat_Sheet"]

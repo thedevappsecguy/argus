@@ -1,0 +1,48 @@
+- id: V1
+  name: Encoding and Sanitization
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["canonicalization", "output encoding", "injection prevention"]
+- id: V2
+  name: Validation and Business Logic
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["input validation", "business rules", "abuse resistance"]
+- id: V3
+  name: Web Frontend Security
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["browser controls", "frontend hardening", "client-side security"]
+- id: V4
+  name: API and Web Service
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["API auth", "schema validation", "service security"]
+- id: V5
+  name: File Handling
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["file upload", "file scanning", "storage controls"]
+- id: V6
+  name: Authentication
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["identity proofing", "credentials", "MFA"]
+- id: V7
+  name: Session Management
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["session tokens", "cookie security", "logout"]
+- id: V8
+  name: Access Control
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["authorization", "least privilege", "object access"]
+- id: V9
+  name: Data Protection
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["sensitive data", "privacy", "secrets"]
+- id: V10
+  name: Communications
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["TLS", "certificates", "transport security"]
+- id: V11
+  name: Malicious Code
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["malware controls", "integrity", "supply chain"]
+- id: V12
+  name: Security Logging and Error Handling
+  source_url: https://github.com/OWASP/ASVS/blob/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.flat.json
+  key_checks: ["audit logs", "error handling", "monitoring"]

@@ -1,0 +1,56 @@
+- id: Authorization_Cheat_Sheet
+  name: Authorization
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["deny by default", "server-side authorization", "object-level access control"]
+- id: Authentication_Cheat_Sheet
+  name: Authentication
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["strong authentication", "MFA where appropriate", "credential recovery controls"]
+- id: Session_Management_Cheat_Sheet
+  name: Session Management
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["session token confidentiality", "rotation", "timeout"]
+- id: SQL_Injection_Prevention_Cheat_Sheet
+  name: SQL Injection Prevention
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["parameterized queries", "safe ORM usage", "avoid dynamic SQL"]
+- id: Server_Side_Request_Forgery_Prevention_Cheat_Sheet
+  name: SSRF Prevention
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["egress allowlist", "block metadata IPs", "URL parser hardening"]
+- id: Transport_Layer_Security_Cheat_Sheet
+  name: Transport Layer Security
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["TLS for transport", "modern protocols", "certificate validation"]
+- id: Mass_Assignment_Cheat_Sheet
+  name: Mass Assignment
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["allow-list writable fields", "DTOs", "server-side field authorization"]
+- id: REST_Security_Cheat_Sheet
+  name: REST Security
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["authn and authz", "rate limits", "safe HTTP methods"]
+- id: API_Security_Cheat_Sheet
+  name: API Security
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["schema validation", "least privilege", "inventory"]
+- id: Configuration_Cheat_Sheet
+  name: Secure Configuration
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["secure defaults", "disable debug", "harden headers"]
+- id: DoS_Cheat_Sheet
+  name: Denial of Service
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["rate limiting", "quotas", "resource caps"]
+- id: LLM_Prompt_Injection_Prevention_Cheat_Sheet
+  name: LLM Prompt Injection Prevention
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["data/instruction separation", "tool-call validation", "least privilege"]
+- id: Logging_Cheat_Sheet
+  name: Logging
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["security events", "tamper resistance", "secret redaction"]
+- id: Sensitive_Data_Exposure_Cheat_Sheet
+  name: Sensitive Data Exposure
+  source_url: https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets
+  key_checks: ["data minimization", "encryption", "access control"]

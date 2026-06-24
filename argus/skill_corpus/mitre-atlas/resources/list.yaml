@@ -1,0 +1,40 @@
+- id: AML.T0020
+  name: Poison Training Data
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["training data provenance", "dataset tampering", "validation gaps"]
+- id: AML.T0025
+  name: Exfiltrate Model
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["model artifact access", "download paths", "registry permissions"]
+- id: AML.T0040
+  name: ML Supply Chain Compromise
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["dependency trust", "model provenance", "artifact integrity"]
+- id: AML.T0043
+  name: Craft Adversarial Data
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["evasion inputs", "robustness testing", "input constraints"]
+- id: AML.T0051
+  name: LLM Prompt Injection
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["prompt injection", "tool-output injection", "RAG/memory injection"]
+- id: AML.T0051.000
+  name: LLM Prompt Injection - Direct
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["user prompt boundary", "instruction hierarchy", "input filtering"]
+- id: AML.T0051.001
+  name: LLM Prompt Injection - Indirect
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["retrieved content", "tool output", "document/email/web poisoning"]
+- id: AML.T0053
+  name: LLM Jailbreak
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["policy bypass", "safety controls", "adversarial prompts"]
+- id: AML.T0054
+  name: LLM Meta Prompt Extraction
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["system prompt exposure", "hidden context", "configuration leakage"]
+- id: AML.T0057
+  name: LLM Data Leakage
+  source_url: https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml
+  key_checks: ["sensitive context", "private output", "cross-user leakage"]

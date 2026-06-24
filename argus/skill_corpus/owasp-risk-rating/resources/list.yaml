@@ -1,0 +1,10 @@
+# source: https://owasp.org/www-community/OWASP_Risk_Rating_Methodology
+# OWASP Risk Rating factors scored 0-9 by the agent; risk.rate() maps them to severity.
+- {id: ease_of_discovery, group: likelihood, hint: "how easily an attacker finds the issue"}
+- {id: ease_of_exploit, group: likelihood, hint: "effort/skill to exploit once found"}
+- {id: awareness, group: likelihood, hint: "how well-known this class of flaw is"}
+- {id: intrusion_detection, group: likelihood, hint: "inverse of detection strength: weak detection = high"}
+- {id: loss_of_confidentiality, group: impact, hint: "sensitivity/volume of data exposed"}
+- {id: loss_of_integrity, group: impact, hint: "how corrupted or forged data could be"}
+- {id: non_compliance, group: impact, hint: "regulatory exposure (PCI/HIPAA/GDPR)"}
+- {id: privacy_violation, group: impact, hint: "extent of personal-data privacy harm"}

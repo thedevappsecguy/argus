@@ -1,0 +1,67 @@
+[project]
+name = "argus-agent"
+version = "0.1.0"
+description = "Argus — AI threat-modeling agent (multi-agent, skills)"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic==2.13.4",
+    "pyyaml==6.0.3",
+    "google-adk==2.3.0",
+    "google-genai==2.9.0",
+    "typer==0.26.7",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+    "pytest-cov>=6.2",
+    "ruff>=0.15",
+    "mypy>=2.1",
+]
+
+[project.scripts]
+argus = "argus.cli:main"
+
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["argus*"]
+
+[tool.setuptools.package-data]
+"argus.skill_corpus" = ["*/SKILL.md", "*/resources/list.yaml"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["argus", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["B008", "E501", "SIM108", "UP042"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["argus"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["live: requires GEMINI_API_KEY"]
+
+[tool.coverage.run]
+source = ["argus"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+show_missing = true
+

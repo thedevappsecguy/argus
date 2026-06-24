@@ -1,0 +1,40 @@
+- id: C1
+  name: Access Control
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["deny by default", "centralized authorization", "least privilege"]
+- id: C2
+  name: Cryptography
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["protect data in transit", "protect data at rest", "key management"]
+- id: C3
+  name: Validate Input and Handle Exceptions
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["positive validation", "canonicalization", "safe errors"]
+- id: C4
+  name: Secure Architecture
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["threat modeling", "trust boundaries", "secure design patterns"]
+- id: C5
+  name: Secure by Default
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["secure defaults", "minimal exposure", "explicit enablement"]
+- id: C6
+  name: Secure Dependencies
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["dependency inventory", "updates", "integrity"]
+- id: C7
+  name: Secure Digital Identities
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["identity lifecycle", "authentication", "account recovery"]
+- id: C8
+  name: Leverage Browser Security Features
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["CSP", "secure cookies", "browser isolation"]
+- id: C9
+  name: Security Logging and Monitoring
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["audit trails", "alerting", "tamper resistance"]
+- id: C10
+  name: Stop Server-Side Request Forgery
+  source_url: https://github.com/OWASP/www-project-proactive-controls/tree/master/docs/the-top-10
+  key_checks: ["egress allowlists", "metadata blocking", "URL parsing"]

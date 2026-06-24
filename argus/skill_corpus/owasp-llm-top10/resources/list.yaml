@@ -1,0 +1,48 @@
+- id: "LLM01:2026"
+  name: Prompt Injection
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["direct injection", "indirect injection", "memory/RAG poisoning", "tool-output injection"]
+  atlas_refs: ["AML.T0051", "AML.T0051.000", "AML.T0051.001"]
+  cheatsheet: ["LLM_Prompt_Injection_Prevention_Cheat_Sheet"]
+- id: "LLM02:2026"
+  name: Sensitive Information Disclosure
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["secrets in context", "private data in outputs", "reasoning/context leakage"]
+  cheatsheet: ["Sensitive_Data_Exposure_Cheat_Sheet"]
+- id: "LLM03:2026"
+  name: Supply Chain
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["model/provider trust", "plugins/tools", "datasets and dependencies"]
+  atlas_refs: ["AML.T0040"]
+- id: "LLM04:2026"
+  name: Data and Model Poisoning
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["training data poisoning", "RAG corpus poisoning", "memory poisoning"]
+  atlas_refs: ["AML.T0020"]
+- id: "LLM05:2026"
+  name: Improper Output Handling
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["schema validation", "output encoding", "downstream interpreter safety"]
+  cwe: ["CWE-79"]
+- id: "LLM06:2026"
+  name: Excessive Agency
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["least-privilege tools", "human approval", "policy-gated actions"]
+- id: "LLM07:2026"
+  name: Hidden Context Exposure
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["system prompt leakage", "hidden tool data leakage", "private memory exposure"]
+  atlas_refs: ["AML.T0054"]
+- id: "LLM08:2026"
+  name: Vector and Embedding Weaknesses
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["retrieval poisoning", "embedding inversion", "cross-tenant retrieval"]
+- id: "LLM09:2026"
+  name: Misinformation
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["hallucinated facts", "unsafe reliance", "source attribution"]
+- id: "LLM10:2026"
+  name: Unbounded Consumption
+  source_url: https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026
+  key_checks: ["token/resource limits", "cost controls", "rate limiting"]
+  cwe: ["CWE-770"]

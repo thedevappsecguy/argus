@@ -1,0 +1,43 @@
+- id: "ML01"
+  name: Input Manipulation Attack
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["adversarial examples", "input validation", "robustness testing"]
+  atlas_refs: ["AML.T0043"]
+- id: "ML02"
+  name: Data Poisoning Attack
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["training data provenance", "dataset validation", "poisoning detection"]
+  atlas_refs: ["AML.T0020"]
+- id: "ML03"
+  name: Model Inversion Attack
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["privacy leakage", "sensitive feature reconstruction", "output minimization"]
+- id: "ML04"
+  name: Membership Inference Attack
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["training membership privacy", "confidence output controls", "differential privacy"]
+- id: "ML05"
+  name: Model Theft
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["query throttling", "model watermarking", "access control"]
+- id: "ML06"
+  name: AI Supply Chain Attacks
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["model artifact integrity", "dependency trust", "registry controls"]
+  atlas_refs: ["AML.T0040"]
+- id: "ML07"
+  name: Transfer Learning Attack
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["base model trust", "fine-tuning controls", "model provenance"]
+- id: "ML08"
+  name: Model Skewing
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["feedback-loop abuse", "data drift", "monitoring"]
+- id: "ML09"
+  name: Output Integrity Attack
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["prediction tampering", "output validation", "downstream trust"]
+- id: "ML10"
+  name: Model Poisoning
+  source_url: https://github.com/OWASP/www-project-machine-learning-security-top-10/tree/master/docs
+  key_checks: ["model artifact poisoning", "integrity checks", "rollback"]

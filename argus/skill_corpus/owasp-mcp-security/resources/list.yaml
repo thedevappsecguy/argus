@@ -1,0 +1,40 @@
+- id: "MCP01:2025"
+  name: Token Mismanagement and Secret Exposure
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["secret handling", "token scope", "context/log redaction"]
+- id: "MCP02:2025"
+  name: Privilege Escalation via Scope Creep
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["least privilege", "scope review", "tool permission boundaries"]
+- id: "MCP03:2025"
+  name: Tool Poisoning
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["tool metadata trust", "description injection", "tool registry integrity"]
+- id: "MCP04:2025"
+  name: Software Supply Chain Attacks and Dependency Tampering
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["third-party MCP trust", "dependency integrity", "version pinning"]
+- id: "MCP05:2025"
+  name: Command Injection and Execution
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["shell/tool command validation", "sandboxing", "argument allowlists"]
+- id: "MCP06:2025"
+  name: Intent Flow Subversion
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["goal integrity", "tool-call policy", "workflow step validation"]
+- id: "MCP07:2025"
+  name: Insufficient Authentication and Authorization
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["MCP server auth", "per-tool authz", "caller identity"]
+- id: "MCP08:2025"
+  name: Lack of Audit and Telemetry
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["tool-call logging", "security telemetry", "traceability"]
+- id: "MCP09:2025"
+  name: Shadow MCP Servers
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["server inventory", "approved endpoints", "configuration drift"]
+- id: "MCP10:2025"
+  name: Context Injection and Oversharing
+  source_url: https://github.com/OWASP/www-project-mcp-top-10/tree/main/2025
+  key_checks: ["context minimization", "tool output filtering", "cross-session isolation"]

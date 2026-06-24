@@ -1,0 +1,70 @@
+- id: "A01:2025"
+  name: Broken Access Control
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["object authorization", "function authorization", "least privilege"]
+  cwe: ["CWE-639", "CWE-285"]
+  asvs: ["V4.1.1", "V4.2.1"]
+  cheatsheet: ["Authorization_Cheat_Sheet"]
+- id: "A02:2025"
+  name: Security Misconfiguration
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["secure defaults", "hardening", "debug/config exposure"]
+  cwe: ["CWE-16"]
+  asvs: ["V14.1.1"]
+  cheatsheet: ["Configuration_Cheat_Sheet"]
+- id: "A03:2025"
+  name: Injection
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["SQL/NoSQL/OS injection", "input validation", "safe interpreters"]
+  cwe: ["CWE-89", "CWE-79"]
+  asvs: ["V5.3.4"]
+  cheatsheet: ["SQL_Injection_Prevention_Cheat_Sheet"]
+- id: "A04:2025"
+  name: Insecure Design
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["abuse cases", "threat modeling", "secure architecture"]
+  cwe: ["CWE-693"]
+  asvs: ["V1.1.1"]
+  cheatsheet: []
+- id: "A05:2025"
+  name: Security Logging and Monitoring Failures
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["security event logging", "alerting", "auditability"]
+  cwe: ["CWE-778"]
+  asvs: ["V7.1.1"]
+  cheatsheet: ["Logging_Cheat_Sheet"]
+- id: "A06:2025"
+  name: Vulnerable and Outdated Components
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["dependency inventory", "patching", "SBOM"]
+  cwe: ["CWE-1104"]
+  asvs: ["V14.2.1"]
+  cheatsheet: ["Dependency_Graph_SBOM_Cheat_Sheet"]
+- id: "A07:2025"
+  name: Identification and Authentication Failures
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["authentication", "session protection", "credential recovery"]
+  cwe: ["CWE-287", "CWE-306"]
+  asvs: ["V2.1.1"]
+  cheatsheet: ["Authentication_Cheat_Sheet"]
+- id: "A08:2025"
+  name: Software and Data Integrity Failures
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["deserialization", "CI/CD integrity", "trusted updates"]
+  cwe: ["CWE-502"]
+  asvs: ["V8.3.1"]
+  cheatsheet: ["Deserialization_Cheat_Sheet"]
+- id: "A09:2025"
+  name: Server-Side Request Forgery
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["user-controlled URLs", "internal resource access", "egress filtering"]
+  cwe: ["CWE-918"]
+  asvs: ["V12.6.1"]
+  cheatsheet: ["Server_Side_Request_Forgery_Prevention_Cheat_Sheet"]
+- id: "A10:2025"
+  name: Cryptographic Failures
+  source_url: https://github.com/OWASP/Top10/tree/master/2025/docs/en
+  key_checks: ["TLS", "encryption at rest", "key management"]
+  cwe: ["CWE-319", "CWE-326"]
+  asvs: ["V9.1.1", "V6.2.1"]
+  cheatsheet: ["Transport_Layer_Security_Cheat_Sheet"]

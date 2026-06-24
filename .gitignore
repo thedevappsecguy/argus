@@ -1,0 +1,57 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Virtual environments and local package state
+.venv/
+venv/
+env/
+.uv/
+*.egg-info/
+
+# Build artifacts
+build/
+dist/
+site/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.csr
+*.jks
+*.keystore
+*.secret
+secrets.*
+
+# Generated reports and logs
+*.threatmodel.md
+*.log
+reports/
+
+# General caches
+.cache/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# uv.lock is intentionally committed for reproducible builds.
