@@ -51,7 +51,7 @@ wheels = [
 ]
 
 [[package]]
-name = "argus"
+name = "argus-agent"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
