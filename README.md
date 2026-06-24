@@ -38,14 +38,38 @@ rendering.
 | `skill_corpus` | Packaged exact-reference OWASP, ATLAS, AIUC-1, and risk-rating corpora |
 | `cli` | `argus run` for document input with optional `--out` |
 
-## Quick Start
+## Installation
+
+Install the package from PyPI. Note that while the package is named `argus-agent`, the CLI command remains `argus`:
+
+```bash
+# Recommended: install globally with uv
+uv tool install argus-agent
+
+# Or with pip
+pip install argus-agent
+```
+
+## Usage
+
+You must provide a Gemini API key via the `GEMINI_API_KEY` environment variable:
+
+```bash
+export GEMINI_API_KEY="your-api-key"
+argus run path/to/design.md
+
+# Or securely using 1Password CLI (Recommended)
+op run --env-file=.env -- argus run path/to/design.md
+```
+
+## Local Development
+
+If you want to clone the repository to run it locally or contribute:
 
 ```bash
 uv sync
 
-# Use 1Password CLI to securely load secrets from your vault via .env
-op run --env-file=.env -- uv run argus run path/to/design.md
-
+# Run tests
 uv run pytest
 ```
 
