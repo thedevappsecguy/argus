@@ -15,17 +15,19 @@ def build_report(path: str) -> str:
     try:
         input_text = p.read_text(encoding="utf-8")
     except (OSError, UnicodeDecodeError) as exc:
-        raise typer.BadParameter(
-            "Input must be a readable UTF-8 text document."
-        ) from exc
+        raise typer.BadParameter("Input must be a readable UTF-8 text document.") from exc
 
     return run_threat_model_adk(input_text, str(p))
 
 
 @app.command()
 def run(
-    path: str = typer.Argument(..., help="Input document: PRD, design doc, feature doc, RFC, or ADR"),
-    out: str | None = typer.Option(None, "--out", help="Output path (default: <input>.threatmodel.md)"),
+    path: str = typer.Argument(
+        ..., help="Input document: PRD, design doc, feature doc, RFC, or ADR"
+    ),
+    out: str | None = typer.Option(
+        None, "--out", help="Output path (default: <input>.threatmodel.md)"
+    ),
 ) -> None:
     """Run the Argus ADK threat-modeling workflow on an input file."""
     report = build_report(path)

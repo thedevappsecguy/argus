@@ -36,11 +36,7 @@ def list_skills() -> list[str]:
     """Return names of all skill folders that contain a SKILL.md."""
     if not SKILLS_DIR.exists():
         return []
-    return sorted(
-        p.name
-        for p in SKILLS_DIR.iterdir()
-        if p.is_dir() and (p / "SKILL.md").exists()
-    )
+    return sorted(p.name for p in SKILLS_DIR.iterdir() if p.is_dir() and (p / "SKILL.md").exists())
 
 
 def load_skill(name: str) -> dict:
@@ -131,8 +127,6 @@ def load_selected_skills(model, max_items: int = 20) -> str:
         skill = load_skill(skill_name)
         item_lines = "\n".join(_format_item(i) for i in skill["items"][:max_items])
         blocks.append(
-            f"## {skill['name']}: {skill['description']}\n"
-            f"{skill['body']}\n"
-            f"Items:\n{item_lines}"
+            f"## {skill['name']}: {skill['description']}\n{skill['body']}\nItems:\n{item_lines}"
         )
     return "\n\n".join(blocks)

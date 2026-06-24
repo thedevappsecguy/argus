@@ -13,10 +13,10 @@ from argus.rating import RatedThreat, ThreatStatus
 # Severity ordering for the threats table — Critical first, Note last.
 _SEV_ORDER: dict[str, int] = {
     "Critical": 0,
-    "High":     1,
-    "Medium":   2,
-    "Low":      3,
-    "Note":     4,
+    "High": 1,
+    "Medium": 2,
+    "Low": 3,
+    "Note": 4,
 }
 
 
@@ -72,9 +72,7 @@ def render_report(model: SystemModel, threats: list[RatedThreat]) -> str:
         "| Severity | STRIDE | Threat | Element | Attack path | Mitigating controls |",
         "|---|---|---|---|---|---|",
     ]
-    out += [_row(t) for t in reported] or [
-        "| — | — | _No threats reported_ | — | — | — |"
-    ]
+    out += [_row(t) for t in reported] or ["| — | — | _No threats reported_ | — | — | — |"]
 
     out += ["", "## Ruled out (false positive / not applicable, with reasons)", ""]
     if ruled_out:

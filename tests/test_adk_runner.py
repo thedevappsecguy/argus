@@ -64,7 +64,9 @@ def test_run_threat_model_adk_fails_when_report_agent_does_not_write_final_repor
         run_threat_model_adk("design text", "design.md", runner_factory=lambda: runner)
 
 
-def test_run_threat_model_adk_returns_deterministic_renderer_output_when_state_is_available() -> None:
+def test_run_threat_model_adk_returns_deterministic_renderer_output_when_state_is_available() -> (
+    None
+):
     runner = _Runner(
         final_report={"markdown": "# Freehand report"},
         state_update={
@@ -80,21 +82,23 @@ def test_run_threat_model_adk_returns_deterministic_renderer_output_when_state_i
                 "security_relevant_facts": ["Public API."],
             },
             "rated_threats": {
-                "threats": [{
-                    "template_id": "T-000",
-                    "title": "Missing authorization",
-                    "stride": "E",
-                    "element_id": "api",
-                    "element_kind": "component",
-                    "status": "reported",
-                    "attack_path": "net -> in -> api",
-                    "controls": [],
-                    "rating": {
-                        "likelihood_level": "HIGH",
-                        "impact_level": "HIGH",
-                        "severity": "Critical",
-                    },
-                }]
+                "threats": [
+                    {
+                        "template_id": "T-000",
+                        "title": "Missing authorization",
+                        "stride": "E",
+                        "element_id": "api",
+                        "element_kind": "component",
+                        "status": "reported",
+                        "attack_path": "net -> in -> api",
+                        "controls": [],
+                        "rating": {
+                            "likelihood_level": "HIGH",
+                            "impact_level": "HIGH",
+                            "severity": "Critical",
+                        },
+                    }
+                ]
             },
         },
     )

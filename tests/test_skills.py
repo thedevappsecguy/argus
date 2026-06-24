@@ -40,7 +40,7 @@ def test_web_skill_loads_with_frontmatter_and_items() -> None:
     skill = load_skill("owasp-web-top10")
     assert skill["name"] == "owasp-web-top10"
     assert "web" in skill["description"].lower()
-    assert len(skill["items"]) >= 5     # the Top-10 list
+    assert len(skill["items"]) >= 5  # the Top-10 list
     assert "body" in skill and skill["body"].strip()
 
 
@@ -99,6 +99,7 @@ def test_load_selected_skills_returns_always_loaded_content() -> None:
 
 def test_load_selected_skills_includes_api_skill_for_api_component() -> None:
     from argus.models import Component
+
     model = SystemModel(
         name="m",
         components=[Component(id="api", name="API", type="api")],
@@ -109,6 +110,7 @@ def test_load_selected_skills_includes_api_skill_for_api_component() -> None:
 
 def test_load_selected_skills_includes_item_names_and_source_urls() -> None:
     from argus.models import Component
+
     model = SystemModel(
         name="m",
         components=[Component(id="api", name="API", type="api")],
@@ -121,5 +123,6 @@ def test_load_selected_skills_includes_item_names_and_source_urls() -> None:
 
 def test_load_skill_raises_for_unknown() -> None:
     import pytest
+
     with pytest.raises(FileNotFoundError):
         load_skill("nonexistent-skill-xyz")

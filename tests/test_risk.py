@@ -15,8 +15,8 @@ def test_level_thresholds() -> None:
 def test_owasp_severity_matrix_corners() -> None:
     assert severity("LOW", "LOW") == "Note"
     assert severity("HIGH", "HIGH") == "Critical"
-    assert severity("LOW", "HIGH") == "Medium"   # low likelihood, high impact
-    assert severity("HIGH", "LOW") == "Medium"   # high likelihood, low impact
+    assert severity("LOW", "HIGH") == "Medium"  # low likelihood, high impact
+    assert severity("HIGH", "LOW") == "Medium"  # high likelihood, low impact
 
 
 def test_owasp_severity_matrix_middle() -> None:

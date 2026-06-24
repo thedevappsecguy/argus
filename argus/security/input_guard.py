@@ -34,7 +34,7 @@ def wrap_untrusted(source_name: str, content: str) -> str:
     safe_content = escape(content, quote=False)
     return (
         f"{_GUARD_HEADER}\n\n"
-        f"<untrusted-data source=\"{safe_source}\">\n"
+        f'<untrusted-data source="{safe_source}">\n'
         f"{safe_content}\n"
         f"</untrusted-data>"
     )

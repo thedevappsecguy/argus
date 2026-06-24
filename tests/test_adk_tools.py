@@ -55,7 +55,12 @@ def test_schema_validation_tool_accepts_all_document_artifact_types() -> None:
 def test_element_validation_tool_filters_fake_element_ids() -> None:
     proposed = {
         "threats": [
-            {"title": "BOLA", "stride": "E", "element_id": "api", "rationale": "api serves objects"},
+            {
+                "title": "BOLA",
+                "stride": "E",
+                "element_id": "api",
+                "rationale": "api serves objects",
+            },
             {"title": "Ghost", "stride": "T", "element_id": "ghost", "rationale": "not real"},
         ]
     }
@@ -65,28 +70,30 @@ def test_element_validation_tool_filters_fake_element_ids() -> None:
 
 def test_risk_rating_tool_calculates_severity_from_agent_factors() -> None:
     verified = {
-        "threats": [{
-            "title": "BOLA",
-            "stride": "E",
-            "element_id": "api",
-            "reachable": True,
-            "attack_path": "net -> in -> api",
-            "mitigating_controls": ["object-level authorization"],
-            "likelihood": {
-                "ease_of_discovery": 9,
-                "ease_of_exploit": 9,
-                "awareness": 9,
-                "intrusion_detection": 9,
-            },
-            "impact": {
-                "loss_of_confidentiality": 9,
-                "loss_of_integrity": 9,
-                "non_compliance": 9,
-                "privacy_violation": 9,
-            },
-            "verdict": "confirmed",
-            "reason": "attacker can request another object",
-        }]
+        "threats": [
+            {
+                "title": "BOLA",
+                "stride": "E",
+                "element_id": "api",
+                "reachable": True,
+                "attack_path": "net -> in -> api",
+                "mitigating_controls": ["object-level authorization"],
+                "likelihood": {
+                    "ease_of_discovery": 9,
+                    "ease_of_exploit": 9,
+                    "awareness": 9,
+                    "intrusion_detection": 9,
+                },
+                "impact": {
+                    "loss_of_confidentiality": 9,
+                    "loss_of_integrity": 9,
+                    "non_compliance": 9,
+                    "privacy_violation": 9,
+                },
+                "verdict": "confirmed",
+                "reason": "attacker can request another object",
+            }
+        ]
     }
     result = risk_rating_tool(_ingestion_dict(), verified)
     assert result["threats"][0]["severity"] == "Critical"
@@ -94,15 +101,17 @@ def test_risk_rating_tool_calculates_severity_from_agent_factors() -> None:
 
 def test_risk_rating_tool_prefers_authoritative_state_ingestion() -> None:
     verified = {
-        "threats": [{
-            "title": "BOLA",
-            "stride": "E",
-            "element_id": "api",
-            "reachable": True,
-            "attack_path": "net -> in -> api",
-            "verdict": "confirmed",
-            "reason": "attacker can request another object",
-        }]
+        "threats": [
+            {
+                "title": "BOLA",
+                "stride": "E",
+                "element_id": "api",
+                "reachable": True,
+                "attack_path": "net -> in -> api",
+                "verdict": "confirmed",
+                "reason": "attacker can request another object",
+            }
+        ]
     }
     corrupt_ingestion_arg = {
         "artifact_type": "generic_doc",
@@ -124,18 +133,23 @@ def test_risk_rating_tool_prefers_authoritative_state_ingestion() -> None:
 
 
 def test_report_render_tool_uses_renderer_not_freeform_markdown() -> None:
-    rated = risk_rating_tool(_ingestion_dict(), {
-        "threats": [{
-            "title": "BOLA",
-            "stride": "E",
-            "element_id": "api",
-            "reachable": True,
-            "attack_path": "net -> in -> api",
-            "mitigating_controls": ["object-level authorization"],
-            "verdict": "confirmed",
-            "reason": "attacker can request another object",
-        }]
-    })
+    rated = risk_rating_tool(
+        _ingestion_dict(),
+        {
+            "threats": [
+                {
+                    "title": "BOLA",
+                    "stride": "E",
+                    "element_id": "api",
+                    "reachable": True,
+                    "attack_path": "net -> in -> api",
+                    "mitigating_controls": ["object-level authorization"],
+                    "verdict": "confirmed",
+                    "reason": "attacker can request another object",
+                }
+            ]
+        },
+    )
     result = report_render_tool(_ingestion_dict(), rated)
     assert result["markdown"].startswith("# Threat Model: payments")
     assert "| Severity |" in result["markdown"]

@@ -13,24 +13,24 @@ from pydantic import BaseModel
 # OWASP overall risk severity matrix: (likelihood_level, impact_level) → severity label.
 # Source: OWASP Risk Rating Methodology table.
 _SEVERITY_MATRIX: dict[tuple[str, str], str] = {
-    ("LOW", "LOW"):      "Note",
-    ("LOW", "MEDIUM"):   "Low",
-    ("LOW", "HIGH"):     "Medium",
-    ("MEDIUM", "LOW"):   "Low",
+    ("LOW", "LOW"): "Note",
+    ("LOW", "MEDIUM"): "Low",
+    ("LOW", "HIGH"): "Medium",
+    ("MEDIUM", "LOW"): "Low",
     ("MEDIUM", "MEDIUM"): "Medium",
-    ("MEDIUM", "HIGH"):  "High",
-    ("HIGH", "LOW"):     "Medium",
-    ("HIGH", "MEDIUM"):  "High",
-    ("HIGH", "HIGH"):    "Critical",
+    ("MEDIUM", "HIGH"): "High",
+    ("HIGH", "LOW"): "Medium",
+    ("HIGH", "MEDIUM"): "High",
+    ("HIGH", "HIGH"): "Critical",
 }
 
 
 class RiskRating(BaseModel):
     """The result of an OWASP risk rating computation."""
 
-    likelihood_level: str   # LOW | MEDIUM | HIGH
-    impact_level: str       # LOW | MEDIUM | HIGH
-    severity: str           # Note | Low | Medium | High | Critical
+    likelihood_level: str  # LOW | MEDIUM | HIGH
+    impact_level: str  # LOW | MEDIUM | HIGH
+    severity: str  # Note | Low | Medium | High | Critical
 
 
 def level_of(average: float) -> str:

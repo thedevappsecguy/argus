@@ -35,13 +35,15 @@ class Classification(str, Enum):
 
 
 #: Classifications that count as "sensitive" for impact scoring and the plaintext check.
-SENSITIVE: frozenset[Classification] = frozenset({
-    Classification.PII,
-    Classification.PCI,
-    Classification.PHI,
-    Classification.SECRET,
-    Classification.IP,
-})
+SENSITIVE: frozenset[Classification] = frozenset(
+    {
+        Classification.PII,
+        Classification.PCI,
+        Classification.PHI,
+        Classification.SECRET,
+        Classification.IP,
+    }
+)
 
 
 class Actor(BaseModel):

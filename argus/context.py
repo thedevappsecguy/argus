@@ -31,8 +31,7 @@ def model_to_context(model: SystemModel) -> str:
         lines.append(f"SCOPE: {model.scope}")
 
     untrusted_actors = sorted(
-        a.id for a in model.actors
-        if a.privilege.value in _UNTRUSTED or not a.trusted
+        a.id for a in model.actors if a.privilege.value in _UNTRUSTED or not a.trusted
     )
 
     lines.append("\nACTORS:")
@@ -50,8 +49,7 @@ def model_to_context(model: SystemModel) -> str:
         auth_tag = "authenticated" if f.authenticated else "UNAUTHENTICATED"
         data_str = ", ".join(d.value for d in f.data) if f.data else "unclassified"
         lines.append(
-            f"  - {f.id}: {f.source} -> {f.dest}"
-            f"  [{f.protocol}, {auth_tag}, data={data_str}]"
+            f"  - {f.id}: {f.source} -> {f.dest}  [{f.protocol}, {auth_tag}, data={data_str}]"
         )
 
     if model.trust_boundaries:
