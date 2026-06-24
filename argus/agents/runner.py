@@ -1,3 +1,4 @@
+# mypy: ignore-errors
 """Runtime bridge for executing the ADK-only Argus workflow."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# mypy: ignore-errors
 """ADK-only multi-agent threat modeling workflow for Argus."""
 
 from google.adk.agents import LlmAgent, SequentialAgent

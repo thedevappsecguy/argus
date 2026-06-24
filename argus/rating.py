@@ -113,7 +113,7 @@ def _kind_of(model: SystemModel, element_id: str) -> str:
     return ""
 
 
-def rate_threats(verified: list, model: SystemModel) -> list[RatedThreat]:
+def rate_threats(verified: list[Any], model: SystemModel) -> list[RatedThreat]:
     """Rate verifier output with the deterministic OWASP matrix.
 
     Only threats the verifier confirmed as real *and* reachable become REPORTED (and get a
