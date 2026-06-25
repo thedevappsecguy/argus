@@ -1,6 +1,6 @@
 [project]
 name = "argus-agent"
-version = "0.1.0"
+version = "0.2.0"
 description = "Argus — AI threat-modeling agent (multi-agent, skills)"
 readme = "README.md"
 license = { file = "LICENSE" }
