@@ -2,7 +2,18 @@
 name = "argus-agent"
 version = "0.1.0"
 description = "Argus — AI threat-modeling agent (multi-agent, skills)"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "bvkr" }
+]
 requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+]
 dependencies = [
     "pydantic==2.13.4",
     "pyyaml==6.0.3",
@@ -10,6 +21,11 @@ dependencies = [
     "google-genai==2.9.0",
     "typer==0.26.7",
 ]
+
+[project.urls]
+Homepage = "https://github.com/thedevappsecguy/argus"
+Repository = "https://github.com/thedevappsecguy/argus"
+Issues = "https://github.com/thedevappsecguy/argus/issues"
 
 [dependency-groups]
 dev = [
