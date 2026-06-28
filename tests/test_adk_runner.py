@@ -5,6 +5,18 @@ import pytest
 from argus.agents.runner import run_threat_model_adk
 
 
+class _NodeInfo:
+    def __init__(self, name: str):
+        self.name = name
+        self.path = f"argus/{name}"
+
+
+class _Event:
+    def __init__(self, author: str):
+        self.author = author
+        self.node_info = _NodeInfo(author)
+
+
 class _Session:
     def __init__(self, state: dict):
         self.state = state
@@ -26,10 +38,16 @@ class _SessionService:
 class _Runner:
     app_name = "argus"
 
-    def __init__(self, final_report: dict | None = None, state_update: dict | None = None):
+    def __init__(
+        self,
+        final_report: dict | None = None,
+        state_update: dict | None = None,
+        events: list[_Event] | None = None,
+    ):
         self.session_service = _SessionService()
         self.final_report = final_report
         self.state_update = state_update or {}
+        self.events = events or []
         self.run_calls = []
 
     def run(self, **kwargs):
@@ -37,7 +55,7 @@ class _Runner:
         self.session_service.session.state.update(self.state_update)
         if self.final_report is not None:
             self.session_service.session.state["final_report"] = self.final_report
-        return iter(())
+        return iter(self.events)
 
 
 def test_run_threat_model_adk_seeds_input_state_and_returns_final_markdown() -> None:
@@ -107,3 +125,31 @@ def test_run_threat_model_adk_returns_deterministic_renderer_output_when_state_i
 
     assert report.startswith("# Threat Model: payments")
     assert "# Freehand report" not in report
+
+
+def test_run_threat_model_adk_reports_progress_from_stage_events() -> None:
+    progress = []
+    runner = _Runner(
+        final_report={"markdown": "# Threat Model: payments"},
+        events=[
+            _Event("ingestion_agent"),
+            _Event("architecture_zone_agent"),
+            _Event("report_agent"),
+        ],
+    )
+
+    run_threat_model_adk(
+        "prd text",
+        "prd.md",
+        runner_factory=lambda: runner,
+        progress_callback=lambda stage, status: progress.append((stage, status)),
+    )
+
+    assert progress == [
+        ("ingestion_agent", "started"),
+        ("ingestion_agent", "completed"),
+        ("architecture_zone_agent", "started"),
+        ("architecture_zone_agent", "completed"),
+        ("report_agent", "started"),
+        ("report_agent", "completed"),
+    ]
