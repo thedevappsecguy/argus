@@ -7,6 +7,8 @@ import pytest
 
 @pytest.mark.live
 def test_live_pipeline_produces_report_with_real_gemini() -> None:
+    if os.getenv("ARGUS_RUN_LIVE") != "1":
+        pytest.skip("ARGUS_RUN_LIVE=1 not set")
     if not os.getenv("GEMINI_API_KEY"):
         pytest.skip("GEMINI_API_KEY not set")
 

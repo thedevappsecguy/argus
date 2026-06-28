@@ -52,13 +52,15 @@ wheels = [
 
 [[package]]
 name = "argus-agent"
-version = "0.2.0"
+version = "0.3.0"
 source = { editable = "." }
 dependencies = [
     { name = "google-adk" },
     { name = "google-genai" },
     { name = "pydantic" },
+    { name = "python-dotenv" },
     { name = "pyyaml" },
+    { name = "rich" },
     { name = "typer" },
 ]
 
@@ -75,7 +77,9 @@ requires-dist = [
     { name = "google-adk", specifier = "==2.3.0" },
     { name = "google-genai", specifier = "==2.9.0" },
     { name = "pydantic", specifier = "==2.13.4" },
+    { name = "python-dotenv", specifier = "==1.2.2" },
     { name = "pyyaml", specifier = "==6.0.3" },
+    { name = "rich", specifier = "==15.0.0" },
     { name = "typer", specifier = "==0.26.7" },
 ]
 
